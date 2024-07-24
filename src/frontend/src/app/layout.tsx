@@ -18,6 +18,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link
+          rel="stylesheet"
+          href="https://pro.fontawesome.com/releases/v5.15.1/css/all.css"
+        />
+        <link
           href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css"
           rel="stylesheet"
         ></link>
