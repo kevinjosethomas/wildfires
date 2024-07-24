@@ -1,5 +1,7 @@
-import { Slider } from "@/ui/components/slider";
+import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
+
+import { Slider } from "@/ui/components/slider";
 
 export default function Controls({
   year,
@@ -24,13 +26,21 @@ export default function Controls({
 
   return (
     <div className="flex w-1/3 flex-col">
-      <div className="flex flex-col gap-4 border-b border-white border-opacity-10 bg-neutral-900 bg-opacity-80 p-8">
+      <div className="flex flex-col items-start justify-start gap-4 border-b border-white border-opacity-10 bg-neutral-900 bg-opacity-80 p-8">
+        <Link
+          href="/"
+          className="flex items-center gap-2 opacity-60 transition duration-300 hover:opacity-100"
+        >
+          <i className="fas fa-arrow-left text-white" />
+          <p>Go back</p>
+        </Link>
         <div className="flex w-full items-center justify-between">
           <p className="text-2xl">Year {year}</p>
           <div
-            className="flex cursor-pointer rounded border border-opacity-10 px-4 py-1 transition duration-300 hover:bg-white hover:bg-opacity-20"
+            className="flex cursor-pointer items-center gap-2 rounded border border-white border-opacity-10 bg-white bg-opacity-5 px-4 py-1 transition duration-300 hover:bg-white hover:bg-opacity-10"
             onClick={() => play(1991)}
           >
+            <i className="fas fa-play text-xs text-white" />
             <p className="select-none">Play</p>
           </div>
         </div>
