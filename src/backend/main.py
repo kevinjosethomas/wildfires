@@ -27,7 +27,12 @@ def get_wildfires_by_year(year: int):
         (year,),
     ).fetchall()
 
-    return Response(json.dumps(fires))
+    count = db.execute(
+        "SELECT STAT_CAUSE_DESCR, COUNT(*) FROM Fires WHERE FIRE_YEAR = ? GROUP BY STAT_CAUSE_DESCR",
+        (year,),
+    ).fetchall()
+
+    return Response(json.dumps({"fires": fires, "count": count}))
 
 
 if __name__ == "__main__":

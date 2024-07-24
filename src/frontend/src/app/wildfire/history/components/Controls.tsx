@@ -5,10 +5,12 @@ export default function Controls({
   year,
   setYear,
   wildfires,
+  wildfireCount,
 }: {
   year: number;
   setYear: Dispatch<SetStateAction<number>>;
   wildfires: any;
+  wildfireCount: any;
 }) {
   function play(year: number) {
     if (year >= 2015) {
@@ -41,10 +43,22 @@ export default function Controls({
           step={1}
         />
       </div>
-      <div className="flex flex-col p-8">
+      <div className="flex flex-col gap-2 p-8">
         <p className="text-2xl text-red-600">
           {wildfires.length.toLocaleString()} Wildfires
         </p>
+        <ul className="flex list-inside list-disc flex-col gap-1 text-white">
+          {wildfireCount.map((count: any, index: number) => (
+            <li
+              key={index}
+              className="list-item items-center text-lg text-white"
+            >
+              <p className="inline">
+                {count[0]}: {count[1].toLocaleString()}
+              </p>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
