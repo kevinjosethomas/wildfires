@@ -11,16 +11,20 @@ export default function Home() {
   const [wildfires, setWildfires] = useState([]);
 
   useEffect(() => {
-    (async () => {
+    let timeout = setTimeout(async () => {
       const response = await getWildfiresByYear(year);
       setWildfires(response);
-    })();
+    }, 200);
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [year]);
 
   return (
-    <div className="flex w-screen h-screen justify-end">
+    <div className="flex h-screen w-screen justify-end">
       <Map wildfires={wildfires} />
-      <Controls year={year} setYear={setYear} />
+      <Controls year={year} setYear={setYear} wildfires={wildfires} />
     </div>
   );
 }

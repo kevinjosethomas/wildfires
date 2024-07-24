@@ -19,34 +19,34 @@ export default function MapView({ wildfires }: { wildfires: any }) {
     for (const wildfire of wildfires) {
       const point = {
         position: [wildfire[7], wildfire[8]],
-        size: wildfire[2] / 5,
+        size: wildfire[2] / 10,
         opacity: 0.8,
       };
 
       switch (wildfire[3]) {
         case "A":
-          point.opacity = 0.02;
+          point.opacity = 0.1;
           break;
         case "B":
-          point.opacity = 0.03;
+          point.opacity = 0.2;
           break;
         case "C":
-          point.opacity = 0.04;
+          point.opacity = 0.3;
           break;
         case "D":
-          point.opacity = 0.05;
+          point.opacity = 0.4;
           break;
         case "E":
-          point.opacity = 0.06;
+          point.opacity = 0.5;
           break;
         case "F":
-          point.opacity = 0.07;
+          point.opacity = 0.6;
           break;
         case "G":
-          point.opacity = 0.08;
+          point.opacity = 0.7;
           break;
         default:
-          point.opacity = 0.04;
+          point.opacity = 0.4;
           break;
       }
       data.push(point);
@@ -59,7 +59,7 @@ export default function MapView({ wildfires }: { wildfires: any }) {
       stroked: true,
       pickable: true,
       radiusScale: 5,
-      radiusMinPixels: 0.5,
+      radiusMinPixels: 1,
       getRadius: (d) => d.size,
       getPosition: (d) => d.position,
       getFillColor: (d) => [255, 0, 0, d.opacity * 255],
@@ -69,7 +69,7 @@ export default function MapView({ wildfires }: { wildfires: any }) {
   }, [wildfires]);
   return (
     <DeckGL
-      width="66%"
+      width="66.6666%"
       initialViewState={INITIAL_VIEW_STATE}
       controller
       layers={layers}
