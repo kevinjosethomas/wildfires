@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@deck.gl/mapbox": "^9.0.24",
     "axios": "^1.7.2",
     "deck.gl": "^9.0.24",
     "mapbox-gl": "^3.5.2",

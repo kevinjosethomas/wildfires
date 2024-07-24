@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-
 import "@/ui/styles/tailwind.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,9 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link
-          href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css"
+          href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css"
           rel="stylesheet"
-        />
+        ></link>
       </head>
       <body className={inter.className}>{children}</body>
     </html>
