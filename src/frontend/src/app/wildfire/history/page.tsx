@@ -4,16 +4,17 @@ import { Map } from "react-map-gl";
 import { useEffect, useState } from "react";
 import DeckGL, { MapViewState, ScatterplotLayer } from "deck.gl";
 
+import { Slider } from "@/ui/components/slider";
 import { getWildfiresByYear } from "@/api/wildfire";
 
 const INITIAL_VIEW_STATE: MapViewState = {
-  latitude: 39.8283,
-  longitude: -98.5795,
+  latitude: 50.8283,
+  longitude: -120.5795,
   zoom: 3,
 };
 
 export default function Home() {
-  const [year, setYear] = useState(2000);
+  const [year, setYear] = useState<number>(2000);
   const [wildfires, setWildfires] = useState([]);
   const [layers, setLayers] = useState<ScatterplotLayer[]>();
 
@@ -80,7 +81,7 @@ export default function Home() {
   }, [wildfires]);
 
   return (
-    <div className="flex w-screen h-screen">
+    <div className="flex w-screen h-screen justify-end">
       <DeckGL
         width="66%"
         initialViewState={INITIAL_VIEW_STATE}
@@ -92,8 +93,18 @@ export default function Home() {
           mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
         />
       </DeckGL>
-
-      <div className="w-1/3"></div>
+      <div className="flex flex-col w-1/3 p-8">
+        <div className="flex flex-col">
+          <p className="text-2xl">Year {year}</p>
+          <Slider
+            min={1992}
+            max={2015}
+            defaultValue={[year]}
+            onValueChange={(value) => setYear(value[0])}
+            step={1}
+          />
+        </div>
+      </div>
     </div>
   );
 }
