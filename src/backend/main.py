@@ -2,11 +2,12 @@ import json
 import keras
 import sqlite3
 import numpy as np
+from joblib import load
 from flask_cors import CORS
 from flask import Flask, Response, request
 
 app = Flask(__name__)
-model = keras.saving.load_model("model.keras")
+model = load("model.joblib")
 CORS(app)
 
 
@@ -40,20 +41,12 @@ def get_wildfires_by_year(year: int):
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    CLASS_MAP = {0: "A", 1: "B", 2: "C", 3: "D", 4: "E", 5: "F", 6: "G"}
-
     data = request.json
-    prediction = np.argmax(
-        model.predict(
-            [
-                np.array([data["latitude"]]),
-                np.array([data["longitude"]]),
-                np.array([data["day"]]),
-            ]
-        )
+    prediction = model.predict(
+        np.array([[data["latitude"], data["longitude"], data["day"] / 366]])
     )
-    prediction = CLASS_MAP[prediction]
-    return Response(json.dumps({"prediction": prediction}))
+
+    return Response(json.dumps({"prediction": prediction[0]}))
 
 
 if __name__ == "__main__":
