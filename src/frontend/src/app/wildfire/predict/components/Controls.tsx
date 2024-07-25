@@ -4,6 +4,11 @@ import React, { Dispatch, SetStateAction } from "react";
 
 import { Slider } from "@/ui/components/slider";
 
+function dateFromDay(year: number, day: number) {
+  var date = new Date(year, 0);
+  return new Date(date.setDate(day));
+}
+
 export default function Controls({
   day,
   setDay,
@@ -23,7 +28,9 @@ export default function Controls({
           <i className="fas fa-arrow-left text-white" />
           <p>Go back</p>
         </Link>
-        <p className="text-2xl">Day of the Year: {day}</p>
+        <p className="text-2xl">
+          Day of the Year: {moment(dateFromDay(2025, day)).format("MMM Do")}
+        </p>
         <Slider
           min={1}
           max={365}

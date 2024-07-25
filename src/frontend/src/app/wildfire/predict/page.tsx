@@ -12,12 +12,12 @@ export default function Predict() {
   const [data, setData] = useState<any>([]);
   const [layers, setLayers] = useState<ScatterplotLayer[]>();
 
-  function dateFromDay(year, day) {
-    var date = new Date(year, 0); // initialize a date in `year-01-01`
-    return new Date(date.setDate(day)); // add the number of days
+  function dateFromDay(year: number, day: number) {
+    var date = new Date(year, 0);
+    return new Date(date.setDate(day));
   }
 
-  const onClick = async (e) => {
+  const onClick = async (e: any) => {
     const response = await predictWildfire(
       e.coordinate[1],
       e.coordinate[0],

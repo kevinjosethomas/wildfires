@@ -11,20 +11,8 @@ export default function Home() {
     {
       icon: "fad fa-fire text-red-600",
       title: "Wildfire Predictions",
-      description: "Predict wildfires in certain states at certain times",
+      description: "Predict the size of future wildfires at a given location",
       href: "/wildfire/predict",
-    },
-    {
-      icon: "fad fa-temperature-high text-red-600",
-      title: "Wildfire History",
-      description: "Look at the all wildfire history between 1992 and 2015",
-      href: "/",
-    },
-    {
-      icon: "fad fa-fire text-red-600",
-      title: "Wildfire History",
-      description: "Look at the all wildfire history between 1992 and 2015",
-      href: "/",
     },
   ];
 
