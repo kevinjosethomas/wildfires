@@ -1,3 +1,4 @@
 .env
 *.sqlite
+model.joblib
 node_modules/
