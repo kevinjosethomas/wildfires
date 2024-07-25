@@ -1,9 +1,12 @@
 import json
+import keras
 import sqlite3
-from flask import Flask, Response
+import numpy as np
 from flask_cors import CORS
+from flask import Flask, Response, request
 
 app = Flask(__name__)
+model = keras.saving.load_model("model.keras")
 CORS(app)
 
 
@@ -33,6 +36,24 @@ def get_wildfires_by_year(year: int):
     ).fetchall()
 
     return Response(json.dumps({"fires": fires, "count": count}))
+
+
+@app.route("/predict", methods=["POST"])
+def predict():
+    CLASS_MAP = {0: "A", 1: "B", 2: "C", 3: "D", 4: "E", 5: "F", 6: "G"}
+
+    data = request.json
+    prediction = np.argmax(
+        model.predict(
+            [
+                np.array([data["latitude"]]),
+                np.array([data["longitude"]]),
+                np.array([data["day"]]),
+            ]
+        )
+    )
+    prediction = CLASS_MAP[prediction]
+    return Response(json.dumps({"prediction": prediction}))
 
 
 if __name__ == "__main__":
