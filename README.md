@@ -24,4 +24,7 @@ inspired me to make this project. Here are a few screenshots of the heatmap and 
 <img width="412" alt="image" src="https://github.com/user-attachments/assets/8f39cd4f-ddfb-4cbb-9ec3-14141a3a005a">
 
 ## How It Works
-All data visualized on the heatmap is from the following Kaggle dataset: [1.88 Million US Wildfires](https://www.kaggle.com/datasets/rtatman/188-million-us-wildfires). It's visualized on the NextJS frontend using the Mapbox and Deck.GL. All data is fetched from a Python Flask backend. Similarly, the predictions are enabled by a Random Forest model I trained, which is also served by the Flask API backend.
+All data visualized on the heatmap is from the following Kaggle dataset: [1.88 Million US Wildfires](https://www.kaggle.com/datasets/rtatman/188-million-us-wildfires). It's visualized on the NextJS frontend using the Mapbox and Deck.GL. All data is fetched from a Python Flask backend. Similarly, the predictions are enabled by a Random Forest model I trained, which is also served by the Flask API backend. The code for the different components are as follows:
+- [``src/backend``](https://github.com/kevinjosethomas/wildfires/tree/main/src/backend): Python Flask API with endpoints to serve data and inference Random Forest model
+- [``src/frontend``](https://github.com/kevinjosethomas/wildfires/tree/main/src/frontend): NextJS Frontend to visualize heatmaps with Deck.GL and Mapbox
+- [``src/intelligence``](https://github.com/kevinjosethomas/wildfires/tree/main/src/intelligence): Attempts at training Keras Random Forest model 
