@@ -13,8 +13,8 @@ where we continued to hack and build projects connected to the theme of 'Environ
 and the town is being rebuilt. Here are a few pictures taken by Hack Clubbers on our train:
 
 
-<img width="450" alt="image" src="https://github.com/user-attachments/assets/6dc3241e-5e46-46f0-a3dc-ad99a6bd9796">
-<img width="450" alt="image" src="https://github.com/user-attachments/assets/74121bc4-771a-42b4-8a70-88f40d03da50">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/6dc3241e-5e46-46f0-a3dc-ad99a6bd9796">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/74121bc4-771a-42b4-8a70-88f40d03da50">
 
 
 Being able to see these terrifying wildfires, especially this close to home, was quite frightening. At night, every few
@@ -22,8 +22,8 @@ minutes on the train, we would end up seeing another spotfire–dozens of flamin
 inspired me to make this project. Here are a few screenshots of the heatmap and prediction model:
 
 <img width="2000" alt="image" src="https://github.com/user-attachments/assets/7f84c4f1-457a-4129-8efe-04fea48ffab5">
-<img width="450" alt="image" src="https://github.com/user-attachments/assets/1b289b8a-54c5-4283-98bc-3dd5e72d21fd">
-<img width="450" alt="image" src="https://github.com/user-attachments/assets/8f39cd4f-ddfb-4cbb-9ec3-14141a3a005a">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/1b289b8a-54c5-4283-98bc-3dd5e72d21fd">
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/8f39cd4f-ddfb-4cbb-9ec3-14141a3a005a">
 
-### How it's made
+### How It Works
 All data visualized on the heatmap is from the following Kaggle dataset: [1.88 Million US Wildfires](https://www.kaggle.com/datasets/rtatman/188-million-us-wildfires). It's visualized on the NextJS frontend using the Mapbox and Deck.GL. All data is fetched from a Python Flask backend. Similarly, the predictions are enabled by a Random Forest model I trained, which is also served by the Flask API backend.
