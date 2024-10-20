@@ -4,7 +4,7 @@ Wildfires is a web interface that visualizes all historic wildfires in the Unite
 a prediction model that estimates the size of future wildfires based on location and time of the year. You can watch a video of me
 demoing the project after The Boreal Express [here](https://youtu.be/hiG3fYq3xUU?si=9fNdulXeWHfX3xEw&t=435).
 
-#### The Boreal Express
+## The Boreal Express
 I developed wildfires aboard [The Boreal Express](https://boreal.hackclub.com/), an exclusive Hack Club hackathon with 50
 high school developers around the world. The 7-day hackathon was going to happen aboard a train from Vancouver, BC to Montreal, QC.
 Unfortunately, during our journey, wildfires in Western Canada had reached the beautiful town of [Jasper](https://globalnews.ca/news/10642975/jasper-alberta-wildfire-july-25/)
@@ -23,5 +23,5 @@ inspired me to make this project. Here are a few screenshots of the heatmap and 
 <img width="412" alt="image" src="https://github.com/user-attachments/assets/1b289b8a-54c5-4283-98bc-3dd5e72d21fd">
 <img width="412" alt="image" src="https://github.com/user-attachments/assets/8f39cd4f-ddfb-4cbb-9ec3-14141a3a005a">
 
-#### How It Works
+## How It Works
 All data visualized on the heatmap is from the following Kaggle dataset: [1.88 Million US Wildfires](https://www.kaggle.com/datasets/rtatman/188-million-us-wildfires). It's visualized on the NextJS frontend using the Mapbox and Deck.GL. All data is fetched from a Python Flask backend. Similarly, the predictions are enabled by a Random Forest model I trained, which is also served by the Flask API backend.
